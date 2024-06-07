@@ -1,6 +1,395 @@
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f8f8;
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  background: linear-gradient(to bottom right, #f0f0f0, #d8d1d1, #a49f9f, #cccccc);
+}
+
+header {
+  text-align: center;
+  font-family: "Arial", sans-serif;
+  font-weight: bolder;
+  background-color: #06314a;
+  color: whitesmoke;
+  padding: 20px;
+  margin: 0px 0px 0px 0px;
+}
+
+img {
+  border-radius: 5%;
+}
+
+.playlist-image {
+  width: 150px;
+  height: 150px;
+  margin: 5px;
+}
+
+.header-text {
+  margin: 0px;
+}
+.playlist-cards {
+  border-radius: 10px;
+  background-color: #f5f5f5;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  width: 250px;
+  height: 300px;
+  margin: 40px auto;
+  text-align: center;
+  line-height: 25px;
+  transition: all 0.5s ease;
+}
+
+.playlist-cards h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 0;
+}
+.playlist-cards p {
+  font-size: 16px;
+  color: #666;
+  margin: 0;
+}
+
+.playlist-cards:hover {
+  transition: all 0.5s ease;
+  background-color: grey;
+  color: whitesmoke;
+
+  transform: translate3d(0, -2px, 0) scale(1.1);
+}
+
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  background: linear-gradient(to bottom right, #f0f0f0, #d8d1d1, #a49f9f, #cccccc);
+  justify-content: center;
+  margin: auto;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default, none for none, hidden for showing */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  backdrop-filter: blur(10px);
+}
+
+#top-half-of-modal {
+  background-color: unset;
+}
+
+
+
+section.top-modal {
+  background-color: rgb(225, 224, 224);
+  border-radius: 5px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  border-radius: 15px;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.like-section {
+  all: unset;
+}
+
+.top-modal {
+  display: flex;
+}
+
+.left-quarter {
+  width: 100px;
+  padding: 10px;
+}
+
+.left-three-quarter {
+  width: 75%;
+  padding: 10px;
+}
+
+.fplaypic {
+  size: auto;
+}
+#shuffle-button {
+  width: 100%;
+
+  margin: 0px;
+
+  background: linear-gradient(180deg, #0071dc 0%, #23adf1 100%);
+  border: 1px solid #007ce3;
+  border-radius: 5px;
+  box-shadow: 0 3px 9px 0 rgba(0, 125, 227, 0.5);
+  color: #ffffff;
+
+}
+
+#addSongButton {
+  width: 100%;
+  margin: 5px 0px 0px 0px;
+  background: linear-gradient(180deg, #0071dc 0%, #23adf1 100%);
+  border: 1px solid #007ce3;
+  border-radius: 5px;
+  box-shadow: 0 3px 9px 0 rgba(0, 125, 227, 0.5);
+  color: #ffffff;
+
+
+}
+
+#addSongButton:hover, #shuffle-button:hover {
+  background: linear-gradient(180deg, #0156a4 0%, #23adf1 100%);
+
+}
+
+.deleteButton {
+  all: unset;
+  margin: 0% 95% 0% 5%;
+  padding: 0;
+}
+
+#fshuffle-button {
+  width: 200px;
+}
+
+#ftoppart {
+  width: 50%;
+  height: 240px;
+}
+.song-picture {
+  padding: 5px;
+}
+
+.song-details {
+  padding: 1px;
+  margin: 1px;
+}
+
+.time {
+  float: right;
+}
+
+.small-margin {
+  margin: 1px;
+}
+
+.song {
+  padding: 2px;
+  margin: 5px;
+  border: solid 2px;
+}
+
+.featured {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  padding: 10px;
+}
+
+.middle {
+  width: 70%;
+}
+
+.column-right {
+  float: right;
+  padding: 10px;
+}
+.left,
+.right {
+  width: 15%;
+}
+
+.foot {
+  background-color: #3b3b3b;
+  padding: 20px;
+}
+
+.scroller {
+  overflow-y: scroll;
+  height: 250px;
+}
+
+.fscroller {
+  width: 50%;
+  overflow-y: scroll;
+  align-content: right;
+}
+
+.like-counter {
+  margin: 1px;
+  transition: 0.25s;
+}
+.like-counter:hover {
+  color: red;
+  transition: 0.25s;
+}
+
+.half {
+  width: 50%;
+}
+
+.fcolumn {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+/*form styling*/
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 400px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type="text"],
+.form-container input[type="password"] {
+  width: 90%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type="text"]:focus,
+.form-container input[type="password"]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background: linear-gradient(180deg, #0071dc 0%, #23adf1 100%);
+  border: 1px solid #007ce3;
+  border-radius: 5px;
+  box-shadow: 0 3px 9px 0 rgba(0, 125, 227, 0.5);
+  color: #ffffff;
+  padding: 5px 10px;
+  margin: 5px;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover,
+.open-button:hover {
+  background: linear-gradient(180deg, #0156a4 0%, #23adf1 100%);
+}
+
+
+header {
+  /* Add some padding to the top and bottom of the header for spacing */
+  padding: 20px;
+  background-color: #3b3b3b;
+}
+
+.search-container {
+  /* Float the search container to the right */
+  
+  /* Align the search bar horizontally within the container */
+  display: flex;
+  align-items: right;
+  
+  /* Add some margin to separate the search bar from other elements */
+  margin-left: 20px;
+}
+
+
+#feat-b {
+  margin: 5px;
+}
+header button, .modal-content button, #fshuffle-button {
+  background: linear-gradient(180deg, #0071dc 0%, #23adf1 100%);
+  border: 1px solid #007ce3;
+  border-radius: 5px;
+  box-shadow: 0 3px 9px 0 rgba(0, 125, 227, 0.5);
+  color: #ffffff;
+  padding: 5px 10px;
+}
+
+header button:hover, .modal-content button, #fshuffle-button:hover{
+  background: linear-gradient(180deg, #0156a4 0%, #23adf1 100%);
+}
+
+
+input{
+  background: linear-gradient(180deg, #0071dc 0%, #23adf1 100%);
+  border: 1px solid #007ce3;
+  border-radius: 5px;
+  box-shadow: 0 3px 9px 0 rgba(0, 125, 227, 0.5);
+  color: #ffffff;
+  padding: 5px 10px;
+  margin: 5px;
+}
+
+input:hover {
+  background: linear-gradient(180deg, #0156a4 0%, #23adf1 100%);
+}
+
+
+select{
+  background: linear-gradient(180deg, #c5e3ff 0%, #d6e9f3 100%);
+  border: 1px solid #007ce3;
+  border-radius: 5px;
+  box-shadow: 0 3px 9px 0 rgba(0, 125, 227, 0.5);
+  color: #4c4c4c;
+  padding: 5px 10px;
+  margin: 5px;
+}
+
+select:hover {
+  background: linear-gradient(180deg, #0156a4 0%, #23adf1 100%);
+}
+
+
+
+
+
+#search-bar {
+  /* Style the search bar input element */
+  border: none;
+  border-radius: 4px;
+  padding: 8px;
+  width: 200px;
+  font-size: 16px;
+  background-color: #f0f0f0;
+}
+
+#search-bar::placeholder {
+  /* Style the placeholder text */
+  color: #ffffff;
 }

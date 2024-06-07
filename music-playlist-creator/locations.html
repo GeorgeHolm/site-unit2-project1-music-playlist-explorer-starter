@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Music Playlist Explorer</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!--Add playlist form-->
+    <div class="form-popup" id="myForm">
+        <form class="form-container" id="playlist-adder">
+          <h1>Playlist Information</h1>
+      
+          <label for="plname"><b>Playlist Name</b></label>
+          <input id="plname" type="text" placeholder="Enter Playlist Name" name="plname" required>
+      
+          <label for="plcreator"><b>Creator</b></label>
+          <input id="plcreator" type="text" placeholder="Enter Playlist Creator Name" name="plcreator" required>
+      
+          <button type="submit" class="btn">Create</button>
+          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+      </div>
+
+
+
+    <!--Add song form-->
+    <div class="form-popup" id="songForm">
+        <form class="form-container" id="song-addition">
+          <h1>Song Information</h1>
+      
+          <label for="songName"><b>Song</b></label>
+          <input id="songName" type="text" placeholder="Enter Song Name" name="songName" required>
+
+          <label for="songAlbum"><b>Album</b></label>
+          <input id="songAlbum" type="text" placeholder="Enter Album Name" name="songAlbum" required>
+      
+          <label for="songArtist"><b>Artist</b></label>
+          <input id="songArtist" type="text" placeholder="Enter Song Artist" name="songArtist" required>
+      
+          <label for="songLength"><b>Length</b></label>
+          <input id="songLength" type="text" placeholder="Enter Length of Song (0:00)" name="songLength" required>
+
+          <button type="submit" class="btn">Create</button>
+          <button type="button" class="btn cancel" onclick="closeFormSong()">Close</button>
+        </form>
+      </div>
+
+
+
+  
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        
+        <div class="modal-content">
+
+            <span id="exitButton" class="close">&times;</span>
+
+            <section class="top-modal">
+
+                <div class="left-quarter">
+                    <img src="assets/img/playlist.png" width="100" height="100">
+                </div>
+
+                <div class="left-three-quarter">
+                    <h1>Playlist name</h1>
+                    <h3>Creator name</h3>
+                </div>
+
+            </section>
+  
+                
+                <div class="scroller">
+                    <section class="song top-modal">
+                        <div class="column left">
+                            <img src="assets/img/playlist.png" width="50" height="50">
+                        </div>
+        
+                        <div class="column middle">
+                            <h5 class="small-margin">Song title</h5>
+                            <p class="small-margin">Artist Name</p>
+                            <p class="small-margin">Album Name</p>
+                        </div>    
+                        <p class="column right">0:00</p>
+    
+                    </section>
+    
+                </div>
+                
+        </div>
+    
+   
+
+
+
+        </div>
+    </div>
+
+
+    <header>
+        <!-- Your header content here -->
+
+        <h1 class="header-text">Music Playlist Explorer</h1>
+        <br><br>
+
+        <button id="feat-b" onclick="window.location.href='index.html'">Featured (Lose current data)</buttonbutton>
+        <button onclick="addPlayList()">Add New Playlist</button>
+        <br><br>
+
+        <form id="sort-choice">
+            <label for="sort">Sort:</label>
+            <select name="method" id="method">
+                <option value="None">None</option>
+                <option value="Name">Name</option>
+                <option value="Like">Number of Likes</option>
+            </select>
+            <br><br>
+            <input type="submit" value="Confirm Sort">
+        </form>
+
+        <div class="search-container">
+            <input type="text" id="search-bar" placeholder="Search playlists...">
+        </div>
+
+    </header>
+
+    <main> 
+
+
+        <!-- Your main content here -->
+
+
+
+        <div class="grid-container">
+
+        </div>
+
+
+    </main>
+
+    <footer class="foot">
+        <!-- Your footer content here -->
+        
+    </footer>
+    <script src="data/data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
