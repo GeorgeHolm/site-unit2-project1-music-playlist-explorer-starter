@@ -44,7 +44,6 @@ function createPlaylistCards() {
     playlistCard.appendChild(playlistArtist);
     playlistArtist.classList.add("creator");
 
-
     // Add the playlist likes to the card
     const playlistLikes = document.createElement("button");
     playlistLikes.setAttribute("class", "like-section");
@@ -67,8 +66,8 @@ function createPlaylistCards() {
     });
 
     if (playlist.likeCount > 0) {
-        playlistLikes.innerHTML = `<span class="like-counter">♥ </span><span>${playlist.likeCount}</span>`;
-      }
+      playlistLikes.innerHTML = `<span class="like-counter">♥ </span><span>${playlist.likeCount}</span>`;
+    }
 
     playlistLikes
       .querySelector(".like-counter")
@@ -87,7 +86,8 @@ function createPlaylistCards() {
           event.target === playlistArtist ||
           event.target === playlistImage ||
           event.target === playlistTitle)
-      ) { //in the future use stop propigation
+      ) {
+        //in the future use stop propigation
         modalPopup(playlist);
       }
     });
@@ -209,7 +209,6 @@ const modalPopup = (playlist) => {
 
     `;
 
-
   const myList = document.getElementsByClassName("scroller");
   console.log(myList);
 
@@ -275,25 +274,19 @@ const modalPopup = (playlist) => {
       });
     });
 
+  const exitButton = document.getElementById("exitButton");
 
+  exitButton.addEventListener("click", (event) => {
+    modal.style.display = "none";
+  });
 
+  modal.addEventListener("click", (event) => {
+    const body = document.getElementsByClassName("modal-content");
 
-    const exitButton = document.getElementById("exitButton");
-
-    exitButton.addEventListener("click", (event) => {
+    if (event.target !== body && event.target === modal) {
       modal.style.display = "none";
-
-    });
-  
-    modal.addEventListener("click", (event) => {
-
-      const body = document.getElementsByClassName("modal-content");
-  
-      if (event.target !== body && event.target === modal) {
-
-        modal.style.display = "none";
-      }
-    });
+    }
+  });
 };
 
 //FEATURED JAVASCRIPT
@@ -401,150 +394,142 @@ function addPlayList() {
 }
 
 function addSong() {
-    console.log("adding song");
-    document.getElementById("songForm").style.display = "block";
-  }
+  console.log("adding song");
+  document.getElementById("songForm").style.display = "block";
+}
 
 function closeForm() {
   document.getElementById("myForm").style.display = "none";
 }
 
 function closeFormSong() {
-    document.getElementById("songForm").style.display = "none";
-  }
-
-
+  document.getElementById("songForm").style.display = "none";
+}
 
 const formEle = document.querySelector("#playlist-adder");
 console.log(formEle);
-if(formEle != null) {
-    formEle.addEventListener("submit", (event) => {
-        event.preventDefault();
-      
-        const plname = document.getElementById("plname").value;
-        const plcreator = document.getElementById("plcreator").value;
-      
-        console.log(plname + plcreator);
-      
-        const container = document.querySelector(".grid-container");
-      
-        const playlistCard = document.createElement("div");
-        playlistCard.classList.add("playlist-cards");
-        playlistCard.setAttribute("id", plname + plcreator);
-        // `<span id="exitButton" class="close">&times;</span>'
-        const deleteButton = document.createElement("button");
-        deleteButton.setAttribute("class", "deleteButton");
-      
-        playlistCard.appendChild(deleteButton);
-        deleteButton.innerHTML = `x`;
-      
-        // Add the playlist image to the card
-        const playlistImage = document.createElement("img");
-        playlistImage.src = "assets/img/playlist.png";
-        playlistImage.classList.add("playlist-image");
-        playlistCard.appendChild(playlistImage);
-      
-        // Add the playlist title to the card
-        const playlistTitle = document.createElement("h2");
-        playlistTitle.textContent = plname;
-        playlistCard.appendChild(playlistTitle);
-      
-        // Add the playlist artist to the card
-        const playlistArtist = document.createElement("p");
-        playlistArtist.textContent = plcreator;
-        playlistCard.appendChild(playlistArtist);
-      
-        // Add the playlist likes to the card
-        const playlistLikes = document.createElement("button");
-        playlistLikes.setAttribute("class", "like-section");
-        playlistLikes.innerHTML = `<span class="like-counter">♡ </span><span>0</span>`;
-        playlistCard.appendChild(playlistLikes);
-      
-      
-        let playlist =     {
-          "playlistID": plname + plcreator,
-          "playlist_name": plname,
-          "playlist_creator": plcreator,
-          "playlist_art": "assets/img/playlist.png",
-          "likeCount": 0,
-          "songs": []
-        };
-        lastPlaylistInModal = playlist;
-      
-        playlistLikes.addEventListener("click", (event) => {
-          let heart = playlistLikes.getElementsByClassName("like-counter");
-          console.log(heart);
-          if (event.target === heart[0] && event.target !== playlistLikes) {
-            playlist.likeCount++;
-            console.log(playlist);
-            console.log("goodclick");
-      
-            playlistLikes.innerHTML = `<span class="like-counter">♡ </span><span>${playlist.likeCount}</span>`;
-      
-            if (playlist.likeCount > 0) {
-              playlistLikes.innerHTML = `<span class="like-counter">♥ </span><span>${playlist.likeCount}</span>`;
-            }
-          }
-        });
-      
-        playlistLikes
-          .querySelector(".like-counter")
-          .addEventListener("mouseover", () => {
-            console.log("hover");
-      
-            //playlistLikes.innerHTML = `<p class="like-counter">&#57378; ${playlist.likeCount}</p>`;
-          });
-      
-        //make likes incrementable
-      
-        //fix popup
-        playlistCard.addEventListener("click", (event) => {
-          if (
-            event.target !== playlistLikes &&
-            (event.target === playlistCard ||
-              event.target === playlistArtist ||
-              event.target === playlistImage ||
-              event.target === playlistTitle)
-          ) {
-            console.log(playlist);
-            modalPopup(playlist);
-          }
-        });
-      
-        // Add the card to the page
-        container.appendChild(playlistCard);
-      
-        data.playlists.push(playlist);
-      
-        deleteButton.addEventListener("click", () => {
-          console.log("Helfw");
-          container.removeChild(playlistCard);
-          data.playlists = data.playlists.filter((pl) => {
-            return playlist.playlistID != pl.playlistID;
-          });
-        });
+if (formEle != null) {
+  formEle.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const plname = document.getElementById("plname").value;
+    const plcreator = document.getElementById("plcreator").value;
+
+    console.log(plname + plcreator);
+
+    const container = document.querySelector(".grid-container");
+
+    const playlistCard = document.createElement("div");
+    playlistCard.classList.add("playlist-cards");
+    playlistCard.setAttribute("id", plname + plcreator);
+    // `<span id="exitButton" class="close">&times;</span>'
+    const deleteButton = document.createElement("button");
+    deleteButton.setAttribute("class", "deleteButton");
+
+    playlistCard.appendChild(deleteButton);
+    deleteButton.innerHTML = `x`;
+
+    // Add the playlist image to the card
+    const playlistImage = document.createElement("img");
+    playlistImage.src = "assets/img/playlist.png";
+    playlistImage.classList.add("playlist-image");
+    playlistCard.appendChild(playlistImage);
+
+    // Add the playlist title to the card
+    const playlistTitle = document.createElement("h2");
+    playlistTitle.textContent = plname;
+    playlistCard.appendChild(playlistTitle);
+
+    // Add the playlist artist to the card
+    const playlistArtist = document.createElement("p");
+    playlistArtist.textContent = plcreator;
+    playlistCard.appendChild(playlistArtist);
+
+    // Add the playlist likes to the card
+    const playlistLikes = document.createElement("button");
+    playlistLikes.setAttribute("class", "like-section");
+    playlistLikes.innerHTML = `<span class="like-counter">♡ </span><span>0</span>`;
+    playlistCard.appendChild(playlistLikes);
+
+    let playlist = {
+      playlistID: plname + plcreator,
+      playlist_name: plname,
+      playlist_creator: plcreator,
+      playlist_art: "assets/img/playlist.png",
+      likeCount: 0,
+      songs: [],
+    };
+    lastPlaylistInModal = playlist;
+
+    playlistLikes.addEventListener("click", (event) => {
+      let heart = playlistLikes.getElementsByClassName("like-counter");
+      console.log(heart);
+      if (event.target === heart[0] && event.target !== playlistLikes) {
+        playlist.likeCount++;
+        console.log(playlist);
+        console.log("goodclick");
+
+        playlistLikes.innerHTML = `<span class="like-counter">♡ </span><span>${playlist.likeCount}</span>`;
+
+        if (playlist.likeCount > 0) {
+          playlistLikes.innerHTML = `<span class="like-counter">♥ </span><span>${playlist.likeCount}</span>`;
+        }
+      }
+    });
+
+    playlistLikes
+      .querySelector(".like-counter")
+      .addEventListener("mouseover", () => {
+        console.log("hover");
+
+        //playlistLikes.innerHTML = `<p class="like-counter">&#57378; ${playlist.likeCount}</p>`;
       });
+
+    //make likes incrementable
+
+    //fix popup
+    playlistCard.addEventListener("click", (event) => {
+      if (
+        event.target !== playlistLikes &&
+        (event.target === playlistCard ||
+          event.target === playlistArtist ||
+          event.target === playlistImage ||
+          event.target === playlistTitle)
+      ) {
+        console.log(playlist);
+        modalPopup(playlist);
+      }
+    });
+
+    // Add the card to the page
+    container.appendChild(playlistCard);
+
+    data.playlists.push(playlist);
+
+    deleteButton.addEventListener("click", () => {
+      console.log("Helfw");
+      container.removeChild(playlistCard);
+      data.playlists = data.playlists.filter((pl) => {
+        return playlist.playlistID != pl.playlistID;
+      });
+    });
+  });
 }
 
-
-
 const songEle = document.querySelector("#song-addition"); //need to make it specific to a playlist
-if (songEle != null) { 
-    songEle.addEventListener("submit", (event) => {
-        event.preventDefault();
-        console.log("made it");
-        
-        const songName = document.getElementById("songName").value;
-        const songArtist = document.getElementById("songArtist").value;
-        const songLength = document.getElementById("songLength").value;
-        const songAlbum = document.getElementById("songAlbum").value;
-        
-        
-        
-        
-        const songToAdd = document.createElement("div");
-            //note span might be eaier
-            songToAdd.innerHTML = `
+if (songEle != null) {
+  songEle.addEventListener("submit", (event) => {
+    event.preventDefault();
+    console.log("made it");
+
+    const songName = document.getElementById("songName").value;
+    const songArtist = document.getElementById("songArtist").value;
+    const songLength = document.getElementById("songLength").value;
+    const songAlbum = document.getElementById("songAlbum").value;
+
+    const songToAdd = document.createElement("div");
+    //note span might be eaier
+    songToAdd.innerHTML = `
                     <section class="song top-modal">
                         <div class="column left">
                             <img src="assets/img/song.png" width="50" height="50">
@@ -559,103 +544,96 @@ if (songEle != null) {
         
                     </section>
                 `;
-            console.log("Hello");
-        
-            const myListAdd = document.getElementsByClassName("scroller");
-        
-            myListAdd[0].appendChild(songToAdd);
-            lastPlaylistInModal.songs.push({
-                "songID": songName + songArtist,
-                "title": songName,
-                "artist": songArtist,
-                "album": songAlbum,
-                "cover_art": "assets/img/song.png",
-                "duration": songLength
-              })
-        
-        });
+    console.log("Hello");
+
+    const myListAdd = document.getElementsByClassName("scroller");
+
+    myListAdd[0].appendChild(songToAdd);
+    lastPlaylistInModal.songs.push({
+      songID: songName + songArtist,
+      title: songName,
+      artist: songArtist,
+      album: songAlbum,
+      cover_art: "assets/img/song.png",
+      duration: songLength,
+    });
+  });
 }
-
-
-
 
 //playlist sorting
 
-
-
-
-
 const sortEle = document.querySelector("#sort-choice"); //need to make it specific to a playlist
 if (sortEle != null) {
-    sortEle.addEventListener("submit", (event) => {
-        event.preventDefault();
-        console.log(lastPlaylistInModal);
-    
-        const sortingMethod = document.getElementById("method").value;
-        console.log(data.playlists);
-    
-        if(sortingMethod === "Name") {
-            data.playlists = data.playlists.sort((a, b) => {
-                if (a.playlist_name < b.playlist_name) return -1;
-                if (a.playlist_name > b.playlist_name) return 1;
-                return 0;
-              });
-              console.log(data.playlists);
-            createPlaylistCards();
-        }
-        else if (sortingMethod === "Like") {
-            data.playlists = data.playlists.sort((a, b) => {
-                if (a.likeCount < b.likeCount) return 1;
-                if (a.likeCount > b.likeCount) return -1;
-                return 0;
-              });
-              console.log(data.playlists);
-            createPlaylistCards();
-        }
-    });
-    
+  sortEle.addEventListener("submit", (event) => {
+    event.preventDefault();
+    console.log(lastPlaylistInModal);
+
+    const sortingMethod = document.getElementById("method").value;
+    console.log(data.playlists);
+
+    if (sortingMethod === "Name") {
+      data.playlists = data.playlists.sort((a, b) => {
+        if (a.playlist_name < b.playlist_name) return -1;
+        if (a.playlist_name > b.playlist_name) return 1;
+        return 0;
+      });
+      console.log(data.playlists);
+      createPlaylistCards();
+    } else if (sortingMethod === "Like") {
+      data.playlists = data.playlists.sort((a, b) => {
+        if (a.likeCount < b.likeCount) return 1;
+        if (a.likeCount > b.likeCount) return -1;
+        return 0;
+      });
+      console.log(data.playlists);
+      createPlaylistCards();
+    }
+  });
 }
 
-
-//search bar functionality 
+//search bar functionality
 
 function togglePlaylistCardDisplay() {
+  const gridContainer = document.querySelector(".grid-container");
 
-    const gridContainer = document.querySelector('.grid-container');
+  if (gridContainer != null) {
+    const searchBar = document.querySelector("#search-bar");
 
-    if (gridContainer != null) {
-        const searchBar = document.querySelector('#search-bar');
-    
-        // Get all playlist cards
-    
-        const playlistCards = gridContainer.querySelectorAll('.playlist-cards');
-        
-        // Set initial display state of all playlist cards to block
-        playlistCards.forEach(card => card.style.display = 'block');
-        
-        // Add event listener to search bar input
-        searchBar.addEventListener('input', (event) => {
-          const searchQuery = event.target.value;
-          console.log(searchQuery);
-          
-          // Loop through each playlist card
-          playlistCards.forEach(card => {
-            // Check if playlist name or creator matches search query
-            console.log(card);
-            const playlistNameMatches = card.querySelector('.playlist-name').textContent.toLowerCase().includes(searchQuery.toLowerCase());
-            const creatorMatches = card.querySelector('.creator').textContent.toLowerCase().includes(searchQuery.toLowerCase());
-            
-            // If neither name nor creator match, hide the playlist card
-            if (!playlistNameMatches && !creatorMatches) {
-              card.style.display = 'none';
-            } else {
-              // Otherwise, show the playlist card
-              card.style.display = 'block';
-            }
-          });
-        });
-    }
-    
+    // Get all playlist cards
+
+    const playlistCards = gridContainer.querySelectorAll(".playlist-cards");
+
+    // Set initial display state of all playlist cards to block
+    playlistCards.forEach((card) => (card.style.display = "block"));
+
+    // Add event listener to search bar input
+    searchBar.addEventListener("input", (event) => {
+      const searchQuery = event.target.value;
+      console.log(searchQuery);
+
+      // Loop through each playlist card
+      playlistCards.forEach((card) => {
+        // Check if playlist name or creator matches search query
+        console.log(card);
+        const playlistNameMatches = card
+          .querySelector(".playlist-name")
+          .textContent.toLowerCase()
+          .includes(searchQuery.toLowerCase());
+        const creatorMatches = card
+          .querySelector(".creator")
+          .textContent.toLowerCase()
+          .includes(searchQuery.toLowerCase());
+
+        // If neither name nor creator match, hide the playlist card
+        if (!playlistNameMatches && !creatorMatches) {
+          card.style.display = "none";
+        } else {
+          // Otherwise, show the playlist card
+          card.style.display = "block";
+        }
+      });
+    });
   }
-  
-  togglePlaylistCardDisplay();
+}
+
+togglePlaylistCardDisplay();

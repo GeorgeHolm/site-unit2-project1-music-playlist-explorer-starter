@@ -1,7 +1,13 @@
 body {
   font-family: "Arial", sans-serif;
   margin: 0;
-  background: linear-gradient(to bottom right, #f0f0f0, #d8d1d1, #a49f9f, #cccccc);
+  background: linear-gradient(
+    to bottom right,
+    #f0f0f0,
+    #d8d1d1,
+    #a49f9f,
+    #cccccc
+  );
 }
 
 header {
@@ -18,7 +24,6 @@ img {
   border-radius: 5%;
   box-shadow: 0 0 10px grey;
   transition: all 0.5s ease;
-
 }
 
 img:hover {
@@ -72,7 +77,13 @@ img:hover {
 .grid-container {
   display: flex;
   flex-wrap: wrap;
-  background: linear-gradient(to bottom right, #f0f0f0, #d8d1d1, #a49f9f, #cccccc);
+  background: linear-gradient(
+    to bottom right,
+    #f0f0f0,
+    #d8d1d1,
+    #a49f9f,
+    #cccccc
+  );
   justify-content: center;
   margin: auto;
 }
@@ -95,14 +106,10 @@ img:hover {
   background-color: unset;
 }
 
-
-
 section.top-modal {
   background-color: rgb(225, 224, 224);
   border-radius: 5px;
 }
-
-
 
 /* Modal Content/Box */
 .modal-content {
@@ -148,7 +155,6 @@ section.top-modal {
   border-radius: 5px;
   box-shadow: 0 3px 9px 0 rgba(0, 125, 227, 0.5);
   color: #ffffff;
-
 }
 
 #addSongButton {
@@ -159,13 +165,11 @@ section.top-modal {
   border-radius: 5px;
   box-shadow: 0 3px 9px 0 rgba(0, 125, 227, 0.5);
   color: #ffffff;
-
-
 }
 
-#addSongButton:hover, #shuffle-button:hover {
+#addSongButton:hover,
+#shuffle-button:hover {
   background: linear-gradient(180deg, #0156a4 0%, #23adf1 100%);
-
 }
 
 .deleteButton {
@@ -321,7 +325,6 @@ section.top-modal {
   background: linear-gradient(180deg, #0156a4 0%, #23adf1 100%);
 }
 
-
 header {
   /* Add some padding to the top and bottom of the header for spacing */
   padding: 20px;
@@ -330,20 +333,21 @@ header {
 
 .search-container {
   /* Float the search container to the right */
-  
+
   /* Align the search bar horizontally within the container */
   display: flex;
   align-items: right;
-  
+
   /* Add some margin to separate the search bar from other elements */
   margin-left: 20px;
 }
 
-
 #feat-b {
   margin: 5px;
 }
-header button, .modal-content button, #fshuffle-button {
+header button,
+.modal-content button,
+#fshuffle-button {
   background: linear-gradient(180deg, #0071dc 0%, #23adf1 100%);
   border: 1px solid #007ce3;
   border-radius: 5px;
@@ -352,12 +356,13 @@ header button, .modal-content button, #fshuffle-button {
   padding: 5px 10px;
 }
 
-header button:hover, .modal-content button, #fshuffle-button:hover{
+header button:hover,
+.modal-content button,
+#fshuffle-button:hover {
   background: linear-gradient(180deg, #0156a4 0%, #23adf1 100%);
 }
 
-
-input{
+input {
   background: linear-gradient(180deg, #0071dc 0%, #23adf1 100%);
   border: 1px solid #007ce3;
   border-radius: 5px;
@@ -371,8 +376,7 @@ input:hover {
   background: linear-gradient(180deg, #0156a4 0%, #23adf1 100%);
 }
 
-
-select{
+select {
   background: linear-gradient(180deg, #c5e3ff 0%, #d6e9f3 100%);
   border: 1px solid #007ce3;
   border-radius: 5px;
@@ -393,9 +397,6 @@ select option {
   color: #fff;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
 }
-
-
-
 
 #search-bar {
   /* Style the search bar input element */
