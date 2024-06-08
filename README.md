@@ -53,6 +53,11 @@ Deployed Application (optional): [Music Playlist Explorer Deployed Site](ADD_LIN
 [My Video Walkthrough](https://www.loom.com/share/bfa0dd2aa71d434b8700f3d184f7bdb4?sid=66ec1ad5-8b19-48b0-89b4-bafd04d65ca5)
 
 
+<a href="https://www.loom.com/share/bfa0dd2aa71d434b8700f3d184f7bdb4?sid=66ec1ad5-8b19-48b0-89b4-bafd04d65ca5">
+   <p>Project video title</p>
+   <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/YOUR_VIDEO_ID-with-play.gif">
+</a>
+
 ### Reflection
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
