@@ -16,6 +16,15 @@ header {
 
 img {
   border-radius: 5%;
+  box-shadow: 0 0 10px grey;
+  transition: all 0.5s ease;
+
+}
+
+img:hover {
+  transition: all 0.5s ease;
+  border-radius: 5%;
+  box-shadow: 0 0 10px white;
 }
 
 .playlist-image {
@@ -92,6 +101,8 @@ section.top-modal {
   background-color: rgb(225, 224, 224);
   border-radius: 5px;
 }
+
+
 
 /* Modal Content/Box */
 .modal-content {
@@ -373,8 +384,15 @@ select{
 
 select:hover {
   background: linear-gradient(180deg, #0156a4 0%, #23adf1 100%);
+  color: whitesmoke;
 }
 
+select option {
+  margin: 40px;
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+}
 
 
 
